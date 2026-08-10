@@ -1,0 +1,30 @@
+:root {
+  /* Brand Colors */
+  --primary-green: #00A878;
+  --primary-green-hover: #008f66;
+  --soft-mint: #E6F4F1;
+  --accent-light: #F0FDF4;
+
+  /* Neutral & Text Colors */
+  --text-main: #0F172A;       /* Dark navy for headers */
+  --text-muted: #64748B;      /* Muted slate for body/captions */
+  --bg-white: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --border-color: #E2E8F0;
+
+  /* Feedback Colors */
+  --error: #EF4444;
+  --success: #10B981;
+
+  /* Radii & Shadows from Reference UI */
+  --radius-pill: 9999px;      /* Pill buttons & search inputs */
+  --radius-lg: 16px;         /* Input fields and primary cards */
+  --radius-md: 12px;
+  
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 8px 30px rgba(0, A8, 78, 0.15);
+
+  /* Fonts & Transitions */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --transition: all 0.2s ease-in-out;
+}

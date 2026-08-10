@@ -1,0 +1,65 @@
+@import './variables.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-white);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Primary Button Styling matching screenshots */
+.btn-primary {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-green-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Form Input Field Container matching image 2.jpg */
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px 14px 44px; /* Space on left for icons */
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  outline: none;
+  background-color: var(--bg-subtle);
+  transition: var(--transition);
+}
+
+.input-field:focus {
+  border-color: var(--primary-green);
+  background-color: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(0, 168, 120, 0.15);
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
