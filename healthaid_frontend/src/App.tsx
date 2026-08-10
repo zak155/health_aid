@@ -1,9 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
 import './styles/global.css';
-
-function Home() {
-  return <div style={{ padding: '2rem' }}><h1>HealthAid Landing Page (Placeholder)</h1></div>;
-}
 
 function Login() {
   return <div style={{ padding: '2rem' }}><h1>Login Page (Placeholder)</h1></div>;
