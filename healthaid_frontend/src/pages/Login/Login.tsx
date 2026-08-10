@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, HeartPulse, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, HeartPulse, ChevronLeft } from 'lucide-react';
 import { authService } from '../../services/authService';
 import { useAuth } from '../../context/AuthContext';
 import './Login.css';
@@ -49,8 +49,8 @@ export default function Login() {
         {/* Top Header Controls */}
         <div className="auth-header-nav">
           <Link to="/" className="back-btn" aria-label="Go back">
-            <ArrowLeft size={20} />
-          </Link>
+  <ChevronLeft size={22} />
+</Link>
           <div className="top-signin-link">
             <span>Don't have an account? </span>
             <Link to="/register" className="link-green">Sign Up</Link>

@@ -203,3 +203,48 @@
   background-color: var(--bg-subtle);
   border-color: #CBD5E1;
 }
+
+/* Heart-Plus Badge Stacking */
+.heart-badge-wrapper {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--soft-mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+}
+
+.heart-plus-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-plus-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  stroke-width: 3px;
+}
+
+/* Bottom Heartbeat Waveform (Image 2.jpg background element) */
+.auth-card {
+  position: relative;
+  overflow: hidden; /* Ensures waveform clip stays inside card curves */
+}
+
+.card-bottom-waveform {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  pointer-events: none;
+  opacity: 0.6;
+}

@@ -1,188 +1,358 @@
-.hero-section {
-  padding: 60px 24px;
+/* src/pages/Home/Home.css */
+
+.onboarding-wrapper {
+  min-height: 100vh;
   background-color: var(--bg-white);
-  min-height: calc(100vh - 73px);
   display: flex;
-  align-items: center;
-}
-
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--soft-mint);
-  color: var(--primary-green);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.hero-title {
-  font-size: 52px;
-  font-weight: 800;
-  color: var(--text-main);
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.text-highlight {
-  color: var(--primary-green);
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  color: var(--text-muted);
-  max-width: 500px;
-  margin-bottom: 32px;
-  line-height: 1.6;
-}
-
-.hero-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 360px;
-}
-
-.btn-hero-primary {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background-color: var(--primary-green);
-  color: white;
+  padding: 24px;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 440px;
+  min-height: 680px;
+  background-color: var(--bg-white);
+  border-radius: 28px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  padding: 32px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Skip Header */
+.onboarding-top-nav {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 30px;
+}
+
+.skip-btn {
   text-decoration: none;
-  padding: 16px 32px;
-  border-radius: var(--radius-lg);
-  font-size: 16px;
-  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
   transition: var(--transition);
 }
 
-.btn-hero-primary:hover {
-  background-color: var(--primary-green-hover);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
-}
-
-.btn-hero-secondary {
-  text-align: center;
-  text-decoration: none;
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.underline {
+.skip-btn:hover {
   color: var(--primary-green);
-  font-weight: 600;
-  text-decoration: underline;
 }
 
-/* Illustration Container matching Screenshot design */
-.hero-visual {
-  position: relative;
+/* Slide Content Layout */
+.slide-content {
+  flex: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   justify-content: center;
+  padding: 16px 0;
 }
 
-.illustration-card {
+/* Slide 1 Typography matching 1_2.jpg */
+.slide-1-text {
+  text-align: left;
   width: 100%;
-  max-width: 420px;
-  height: 480px;
-  background-color: var(--bg-subtle);
-  border-radius: 28px;
-  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.slide-1-text h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.slide-1-text .brand-highlight {
+  color: var(--primary-green);
+}
+
+.slide-1-text p {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* Doctor Image Container */
+.doctor-visual-container {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-soft);
+  margin: 0 auto;
 }
 
-.pulse-circle {
-  width: 140px;
-  height: 140px;
+.doctor-png-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Slide 2 Header & Visuals */
+.brand-hero-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.brand-hero-logo h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 12px;
+}
+
+.brand-hero-logo p {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.medical-instruments-visual {
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  background-color: var(--bg-subtle);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pulse-line {
+  width: 80%;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.instruments-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.icon-box-mint {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--soft-mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-green);
+}
+
+/* Footer & Centered Pagination Dots */
+.onboarding-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background-color: var(--primary-green);
+  width: 10px;
+  height: 10px;
+}
+
+/* Slide 1 Next Arrow Positioning */
+.slide-1-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btn-circle-next {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-circle-next:hover {
+  background-color: var(--primary-green-hover);
+  transform: scale(1.05);
+}
+
+/* Slide 2 Action Footer */
+.slide-2-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.bottom-signin-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+
+/* Slide 2 Specific Styling matching Image 3_2.jpg */
+
+.slide-2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.brand-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.brand-hero-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 12px;
+  letter-spacing: -0.5px;
+}
+
+.brand-hero-tagline {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Central Medical Illustration Card */
+.medical-hero-visual {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  border-radius: 24px;
+  background: radial-gradient(circle at center, rgba(230, 244, 241, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Background Pulse Line */
+.pulse-waveform-svg {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+}
+
+/* Stethoscope & Shield Row */
+.instruments-display-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.medical-badge-card {
+  width: 64px;
+  height: 64px;
+  background-color: var(--bg-white);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 168, 120, 0.12);
+  border: 1px solid rgba(0, 168, 120, 0.15);
+  color: var(--primary-green);
+}
+
+.stethoscope-circle {
+  width: 80px;
+  height: 80px;
   background-color: var(--soft-mint);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-
-.icon-stethoscope {
   color: var(--primary-green);
+  box-shadow: 0 10px 28px rgba(0, 168, 120, 0.18);
+  border: 2px solid var(--bg-white);
 }
 
-.floating-badge {
-  position: absolute;
-  top: 32px;
-  left: 24px;
-  background-color: var(--bg-white);
-  padding: 12px 18px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 10;
-}
-
-.floating-badge strong {
-  display: block;
-  font-size: 14px;
-  color: var(--text-main);
-}
-
-.floating-badge p {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.icon-green {
-  color: var(--primary-green);
-}
-
-.waveform-bg {
-  position: absolute;
-  bottom: 0;
+/* Slide 2 Action Footer */
+.slide-2-footer {
   width: 100%;
-  line-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Responsive Mobile Rules */
-@media (max-width: 900px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+.btn-get-started {
+  width: 100%;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 6px 20px rgba(0, 168, 120, 0.2);
+}
 
-  .hero-title {
-    font-size: 38px;
-  }
-
-  .hero-subtitle {
-    margin: 0 auto 32px auto;
-  }
-
-  .hero-actions {
-    margin: 0 auto;
-  }
-
-  .hero-visual {
-    margin-top: 32px;
-  }
+.btn-get-started:hover {
+  background-color: var(--primary-green-hover);
+  transform: translateY(-1px);
 }

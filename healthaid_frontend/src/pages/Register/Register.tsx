@@ -7,12 +7,14 @@ import {
   Lock, 
   Eye, 
   EyeOff, 
-  HeartPulse, 
-  ArrowLeft,
+  HeartPulse,
+  Plus,
+  ChevronLeft,
+
   Stethoscope,
   UserCheck
 } from 'lucide-react';
-import { authService, RegisterPayload } from '../../services/authService';
+import { authService, type RegisterPayload } from '../../services/authService';
 import './Register.css';
 
 export default function Register() {
@@ -86,8 +88,8 @@ export default function Register() {
         {/* Top Header Controls matching Image 2.jpg */}
         <div className="auth-header-nav">
           <Link to="/" className="back-btn" aria-label="Go back">
-            <ArrowLeft size={20} />
-          </Link>
+  <ChevronLeft size={22} />
+</Link>
           <div className="top-signin-link">
             <span>Already have an account? </span>
             <Link to="/login" className="link-green">Sign In</Link>
@@ -254,6 +256,8 @@ export default function Register() {
             Continue with Apple
           </button>
         </div>
+
+        
       </div>
     </div>
   );
