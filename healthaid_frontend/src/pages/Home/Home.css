@@ -1,4 +1,6 @@
-/* src/pages/Home/Home.css */
+/* ==========================================================================
+   HealthAid Onboarding Carousel & Layout Styles
+   ========================================================================== */
 
 .onboarding-wrapper {
   min-height: 100vh;
@@ -9,6 +11,7 @@
   padding: 24px;
 }
 
+/* Card Container with Relative Positioning Context */
 .onboarding-card {
   width: 100%;
   max-width: 440px;
@@ -25,11 +28,26 @@
   overflow: hidden;
 }
 
-/* Top Skip Header */
+/* Layer 1: Full-Cover Background Image Layer */
+.full-cover-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Layer 3: Top Navigation Bar */
 .onboarding-top-nav {
   display: flex;
   justify-content: flex-end;
   min-height: 30px;
+  position: relative;
+  z-index: 10;
 }
 
 .skip-btn {
@@ -44,7 +62,7 @@
   color: var(--primary-green);
 }
 
-/* Slide Content Layout */
+/* Layer 2: Slide Main Content Area */
 .slide-content {
   flex: 1;
   display: flex;
@@ -53,9 +71,11 @@
   text-align: center;
   justify-content: center;
   padding: 16px 0;
+  position: relative;
+  z-index: 5;
 }
 
-/* Slide 1 Typography matching 1_2.jpg */
+/* Slide 1 Styles */
 .slide-1-text {
   text-align: left;
   width: 100%;
@@ -66,11 +86,7 @@
   font-size: 32px;
   font-weight: 800;
   color: var(--text-main);
-  line-height: 1.2;
-}
-
-.slide-1-text .brand-highlight {
-  color: var(--primary-green);
+  line-height: 1.25;
 }
 
 .slide-1-text p {
@@ -78,9 +94,10 @@
   font-size: 15px;
   margin-top: 12px;
   line-height: 1.5;
+  max-width: 280px; /* Constrains text width to naturally break into 3-4 neat lines */
 }
 
-/* Doctor Image Container */
+
 .doctor-visual-container {
   position: relative;
   width: 100%;
@@ -98,74 +115,55 @@
   object-fit: contain;
 }
 
-/* Slide 2 Header & Visuals */
-.brand-hero-logo {
+/* Slide 2 Branding Overlay Header */
+.brand-hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 32px;
-}
-
-.brand-hero-logo h1 {
-  font-size: 36px;
-  font-weight: 800;
-  color: var(--text-main);
+  text-align: center;
   margin-top: 12px;
 }
 
-.brand-hero-logo p {
+/* Update in src/pages/Home/Home.css */
+
+.overlay-brand {
+  background: transparent; /* <--- Omitted background box */
+  backdrop-filter: none;    /* <--- Removed blur filter */
+  border: none;             /* <--- Removed border */
+  box-shadow: none;         /* <--- Removed drop shadow */
+  padding: 0;
+}
+
+.brand-hero-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 8px;
+  letter-spacing: -0.5px;
+}
+
+.brand-hero-tagline {
   font-size: 15px;
   color: var(--text-muted);
   font-weight: 500;
+  margin-top: 2px;
 }
-
-.medical-instruments-visual {
-  width: 100%;
-  max-width: 280px;
-  height: 180px;
-  background-color: var(--bg-subtle);
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.pulse-line {
-  width: 80%;
-  height: 40px;
-  margin-bottom: 12px;
-}
-
-.instruments-row {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.icon-box-mint {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background-color: var(--soft-mint);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.brand-highlight {
   color: var(--primary-green);
 }
-
-/* Footer & Centered Pagination Dots */
+/* Layer 3: Footer Controls & Action Buttons (CRITICAL FIX) */
 .onboarding-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   position: relative;
+  z-index: 10; /* Ensures buttons sit above the background and receive clicks */
   width: 100%;
+  margin-top: auto;
 }
 
+/* Pagination Dots */
 .pagination-dots {
   display: flex;
   align-items: center;
@@ -191,7 +189,7 @@
   height: 10px;
 }
 
-/* Slide 1 Next Arrow Positioning */
+/* Slide 1 Next Arrow Button */
 .slide-1-action-row {
   width: 100%;
   display: flex;
@@ -219,123 +217,13 @@
   transform: scale(1.05);
 }
 
-/* Slide 2 Action Footer */
+/* Slide 2 Action Footer (Get Started + Sign In) */
 .slide-2-footer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin-top: 8px;
-}
-
-.bottom-signin-text {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-
-/* Slide 2 Specific Styling matching Image 3_2.jpg */
-
-.slide-2-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
-
-.brand-hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 12px;
-}
-
-.brand-hero-title {
-  font-size: 34px;
-  font-weight: 800;
-  color: var(--text-main);
-  margin-top: 12px;
-  letter-spacing: -0.5px;
-}
-
-.brand-hero-tagline {
-  font-size: 15px;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-top: 4px;
-}
-
-/* Central Medical Illustration Card */
-.medical-hero-visual {
-  width: 100%;
-  height: 240px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-  border-radius: 24px;
-  background: radial-gradient(circle at center, rgba(230, 244, 241, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-/* Background Pulse Line */
-.pulse-waveform-svg {
-  position: absolute;
-  width: 100%;
-  height: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.4;
-}
-
-/* Stethoscope & Shield Row */
-.instruments-display-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  z-index: 2;
-  position: relative;
-}
-
-.medical-badge-card {
-  width: 64px;
-  height: 64px;
-  background-color: var(--bg-white);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 168, 120, 0.12);
-  border: 1px solid rgba(0, 168, 120, 0.15);
-  color: var(--primary-green);
-}
-
-.stethoscope-circle {
-  width: 80px;
-  height: 80px;
-  background-color: var(--soft-mint);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-green);
-  box-shadow: 0 10px 28px rgba(0, 168, 120, 0.18);
-  border: 2px solid var(--bg-white);
-}
-
-/* Slide 2 Action Footer */
-.slide-2-footer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
 }
 
 .btn-get-started {
@@ -349,10 +237,16 @@
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 6px 20px rgba(0, 168, 120, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 168, 120, 0.25);
+  display: block; /* Guarantees block visibility */
 }
 
 .btn-get-started:hover {
   background-color: var(--primary-green-hover);
   transform: translateY(-1px);
+}
+
+.bottom-signin-text {
+  font-size: 14px;
+  color: var(--text-muted);
 }

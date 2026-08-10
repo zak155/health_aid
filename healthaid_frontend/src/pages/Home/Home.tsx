@@ -1,14 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  Heart, 
-  Plus, 
-  Stethoscope, 
-  ShieldCheck,
-  Activity
-} from 'lucide-react';
+import { ArrowRight, Heart, Plus } from 'lucide-react';
 import doctorImg from '../../assets/doctor.png';
+import slide2BgPng from '../../assets/background2.png'; // <--- Import your new PNG background here!
 import './Home.css';
 
 export default function Home() {
@@ -25,7 +19,7 @@ export default function Home() {
 
   return (
     <div className="onboarding-wrapper">
-      <div className="onboarding-card">
+      <div className={`onboarding-card ${currentSlide === 1 ? 'slide-2-active' : ''}`}>
         
         {/* Top Header Controls */}
         <div className="onboarding-top-nav">
@@ -34,7 +28,7 @@ export default function Home() {
               Skip
             </Link>
           ) : (
-            <div style={{ height: '22px' }} /> /* Spacer for alignment on Slide 2 */
+            <div style={{ height: '22px' }} />
           )}
         </div>
 
@@ -42,15 +36,16 @@ export default function Home() {
         {currentSlide === 0 && (
           <div className="slide-content">
             <div className="slide-1-text">
-              <h1>
-                Welcome to <br />
-                <span className="brand-highlight">HealthAid</span>
-              </h1>
-              <p>
-                Your personal health companion. Track, consult and take control of your well-being.
-              </p>
-            </div>
-
+  <h1>
+    Welcome to <br />
+    <span className="brand-highlight">HealthAid</span>
+  </h1>
+  <p>
+    Your personal health companion. <br />
+    Track, consult and take control <br />
+    of your well-being.
+  </p>
+</div>
             <div className="doctor-visual-container">
               <img 
                 src={doctorImg} 
@@ -61,51 +56,33 @@ export default function Home() {
           </div>
         )}
 
-        {/* SLIDE 2 (Image 3_2.jpg) */}
+        {/* SLIDE 2 (Full-Cover Layered PNG Background) */}
         {currentSlide === 1 && (
-          <div className="slide-content slide-2-container">
-            {/* Header Brand Logo & Tagline */}
-            <div className="brand-hero-section">
-              <div className="heart-badge-wrapper" style={{ width: '64px', height: '64px' }}>
-                <div className="heart-plus-icon">
-                  <Heart size={44} fill="var(--primary-green)" color="var(--primary-green)" />
-                  <Plus size={18} className="heart-plus-overlay" />
-                </div>
-              </div>
-              <h1 className="brand-hero-title">
-                Health<span className="brand-highlight">Aid</span>
-              </h1>
-              <p className="brand-hero-tagline">Your Health, Our Priority</p>
-            </div>
+          <>
+            {/* FULL-COVER BACKGROUND PNG LAYER */}
+            <img 
+              src={slide2BgPng} 
+              alt="HealthAid Medical Background" 
+              className="full-cover-bg-image"
+            />
 
-            {/* Central Medical Illustration matching Image 3_2.jpg */}
-            <div className="medical-hero-visual">
-              {/* Pulse Waveform Background */}
-              <div className="pulse-waveform-svg">
-                <svg viewBox="0 0 500 80" preserveAspectRatio="none" style={{ width: '100%', height: '100%' }}>
-                  <path
-                    d="M0,40 L160,40 L180,15 L200,65 L220,25 L240,50 L250,40 L500,40"
-                    fill="none"
-                    stroke="var(--primary-green)"
-                    strokeWidth="2.5"
-                  />
-                </svg>
-              </div>
-
-              {/* Shield & Stethoscope Display */}
-              <div className="instruments-display-row">
-                <div className="medical-badge-card" title="Verified Medical Security">
-                  <ShieldCheck size={32} />
+            {/* OVERLAY CONTENT LAYER */}
+            <div className="slide-content slide-2-overlay-content">
+              {/* Brand Header */}
+              <div className="brand-hero-section overlay-brand">
+                <div className="heart-badge-wrapper" style={{ width: '64px', height: '64px' }}>
+                  <div className="heart-plus-icon">
+                    <Heart size={44} fill="var(--primary-green)" color="var(--primary-green)" />
+                    <Plus size={18} className="heart-plus-overlay" />
+                  </div>
                 </div>
-                <div className="stethoscope-circle" title="Doctor Consultations">
-                  <Stethoscope size={40} />
-                </div>
-                <div className="medical-badge-card" title="Health Metrics Tracking">
-                  <Activity size={32} />
-                </div>
+                <h1 className="brand-hero-title">
+  Health<span className="brand-highlight">Aid</span>
+</h1>
+                <p className="brand-hero-tagline">Your Health, Our Priority</p>
               </div>
             </div>
-          </div>
+          </>
         )}
 
         {/* Bottom Navigation & Controls */}
@@ -125,7 +102,7 @@ export default function Home() {
           </div>
 
           {currentSlide === 0 ? (
-            /* Slide 1 Next Action */
+            /* Slide 1 Action: Circular Next Arrow */
             <div className="slide-1-action-row">
               <button onClick={handleNext} className="btn-circle-next" aria-label="Next Slide">
                 <ArrowRight size={22} />
