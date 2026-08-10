@@ -14,29 +14,29 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['full_name', 'email', 'phone_number', 'password', 'confirm_password']
+        fields = ['full_name', 'email', 'phone_number', 'role', 'password', 'confirm_password']
 
     def validate(self, attrs):
-        # Ensure password and confirm_password match
         if attrs['password'] != attrs['confirm_password']:
             raise serializers.ValidationError({"password": "Passwords do not match."})
         return attrs
 
     def create(self, validated_data):
-        # Remove confirm_password because it's not a field in our User model
         validated_data.pop('confirm_password')
 
-        # Use create_user (NOT create) so Django automatically hashes the password!
+        # Pass the selected role into create_user
         user = User.objects.create_user(
             email=validated_data['email'],
             password=validated_data['password'],
             full_name=validated_data['full_name'],
-            phone_number=validated_data.get('phone_number', '')
+            phone_number=validated_data.get('phone_number', ''),
+            role=validated_data.get('role', User.Role.PATIENT)
         )
         return user
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'full_name', 'email', 'phone_number', 'date_joined']
-        read_only_fields = ['id', 'email', 'date_joined']    
+        fields = ['id', 'full_name', 'email', 'phone_number', 'role', 'date_joined']
+        read_only_fields = ['id', 'email', 'date_joined']

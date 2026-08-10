@@ -19,7 +19,6 @@ def register_user(request):
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_user(request):
@@ -32,13 +31,16 @@ def login_user(request):
             status=status.HTTP_400_BAD_REQUEST
         )
 
-    # Authenticate user credentials using Django's auth backend
     user = authenticate(request, username=email, password=password)
 
     if user is not None:
-        # Generate JWT tokens for the user
+        # Generate JWT tokens
         refresh = RefreshToken.for_user(user)
         
+        # Add custom claim 'role' directly into the token payload!
+        refresh['role'] = user.role
+        refresh['full_name'] = user.full_name
+
         return Response({
             'user': UserSerializer(user).data,
             'tokens': {
@@ -51,7 +53,6 @@ def login_user(request):
         {"error": "Invalid email or password."}, 
         status=status.HTTP_401_UNAUTHORIZED
     )
-
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
