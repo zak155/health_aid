@@ -1,0 +1,153 @@
+.dashboard-wrapper {
+  min-height: 100vh;
+  background-color: var(--bg-subtle);
+}
+
+.dash-header {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 24px;
+}
+
+.dash-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.badge-patient {
+  background-color: var(--soft-mint);
+  color: var(--primary-green);
+}
+
+.badge-doctor {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-logout:hover {
+  background-color: #FEF2F2;
+  color: var(--error);
+  border-color: #FCA5A5;
+}
+
+.dash-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.welcome-banner {
+  background-color: var(--bg-white);
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 32px;
+}
+
+.welcome-banner h1 {
+  font-size: 28px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.welcome-banner p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.metric-card {
+  background-color: var(--bg-white);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-mint {
+  background-color: var(--soft-mint);
+  color: var(--primary-green);
+}
+
+.metric-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.metric-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}

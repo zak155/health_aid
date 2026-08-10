@@ -3,15 +3,9 @@ import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
+import Dashboard from './pages/Dashboard/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 import './styles/global.css';
-
-function Login() {
-  return <div style={{ padding: '2rem' }}><h1>Login Page (Placeholder)</h1></div>;
-}
-
-function Dashboard() {
-  return <div style={{ padding: '2rem' }}><h1>Dashboard Page (Placeholder)</h1></div>;
-}
 
 export default function App() {
   return (
@@ -21,7 +15,16 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          
+          {/* Protected Dashboard Route */}
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
