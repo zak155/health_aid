@@ -17,23 +17,19 @@ The application uses a decoupled architecture with:
 
 > Place screenshot files inside `docs/screenshots/` or update the paths below.
 
-### Onboarding
+## 🎨 UI Screenshots & Flow
 
-|                   Onboarding — Slide 1                   |                   Onboarding — Slide 2                   |
-| :------------------------------------------------------: | :------------------------------------------------------: |
-| ![Onboarding Slide 1](docs/screenshots/onboarding-1.png) | ![Onboarding Slide 2](docs/screenshots/onboarding-2.png) |
+| Onboarding Flow | Sign In / Login |
+|:---:|:---:|
+| ![Onboarding Flow](/healthaid_frontend/src/screenshots/home.PNG) | ![Sign In / Login](/healthaid_frontend/src/screenshots/login.PNG) |
 
-### Authentication
-
-|          Create Account / Sign Up          |            Sign In / Login           |
-| :----------------------------------------: | :----------------------------------: |
-| ![Register](docs/screenshots/register.png) | ![Login](docs/screenshots/login.png) |
-
-### Dashboards
+| Patient Dashboard | Doctor Dashboard |
+|:---:|:---:|
+| ![Patient Dashboard](/healthaid_frontend/src/screenshots/pat-dashboard.PNG) | ![Doctor Dashboard](screenshots/doc-dashboard.png) |
 
 |                       Patient Dashboard                      |                      Doctor Dashboard                      |
 | :----------------------------------------------------------: | :--------------------------------------------------------: |
-| ![Patient Dashboard](docs/screenshots/patient-dashboard.png) | ![Doctor Dashboard](docs/screenshots/doctor-dashboard.png) |
+| ![Patient Dashboard](/healthaid_frontend/src/screenshots/doc-dashboard.PNG) | ![Doctor Dashboard](docs/screenshots/doctor-dashboard.png) |
 
 ---
 
