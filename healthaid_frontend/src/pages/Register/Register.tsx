@@ -8,9 +8,7 @@ import {
   Eye, 
   EyeOff, 
   HeartPulse,
-  
   ChevronLeft,
-
   Stethoscope,
   UserCheck
 } from 'lucide-react';
@@ -85,11 +83,11 @@ export default function Register() {
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
-        {/* Top Header Controls matching Image 2.jpg */}
+        {/* Top Header Controls */}
         <div className="auth-header-nav">
           <Link to="/" className="back-btn" aria-label="Go back">
-  <ChevronLeft size={22} />
-</Link>
+            <ChevronLeft size={22} />
+          </Link>
           <div className="top-signin-link">
             <span>Already have an account? </span>
             <Link to="/login" className="link-green">Sign In</Link>
@@ -233,7 +231,7 @@ export default function Register() {
           </button>
         </form>
 
-        {/* Social Dividers & Placeholders matching Image 2.jpg */}
+        {/* Social Dividers & Placeholders */}
         <div className="divider">
           <span>or</span>
         </div>
@@ -256,8 +254,6 @@ export default function Register() {
             Continue with Apple
           </button>
         </div>
-
-        
       </div>
     </div>
   );

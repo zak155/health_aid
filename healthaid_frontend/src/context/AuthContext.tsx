@@ -37,7 +37,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const response = await api.get('/auth/me/');
           setUser(response.data);
           setAccessToken(storedToken);
-        } catch (error) {
+        } catch {
           // Token expired or invalid -> Clear stale tokens
           localStorage.removeItem('access_token');
           localStorage.removeItem('refresh_token');
