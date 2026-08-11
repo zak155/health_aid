@@ -10,22 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+import os
+import dj_database_url
 from pathlib import Path
 from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z&q+5^8#)^m-*%y$(&05w(qv&gs!hk$_29)*lde*&gv1ekx)+4'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-z&q+5^8#)^m-*%y$(&05w(qv&gs!hk$_29)*lde*&gv1ekx)+4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 
 # Application definition
@@ -38,16 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # Third-party apps
     'rest_framework',
     'corsheaders',
-     'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',
+    
     # Local apps
     'authentication',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise MUST be directly under SecurityMiddleware
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,18 +81,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'healthaid_project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.1/ref/settings/#databases
+# Database Configuration using dj-database-url (Neon / PostgreSQL)
+# Reads from DATABASE_URL in .env (falls back to local SQLite if env variable is absent)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthaid_db',
-        'USER': 'postgres',       
-        'PASSWORD': '1234qw',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL', f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
+
+
+# Custom User Model
+AUTH_USER_MODEL = 'authentication.User'
 
 
 # Password validation
@@ -125,23 +131,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
-AUTH_USER_MODEL = 'authentication.User'
+
+# Django REST Framework Configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 
+
+# Simple JWT Configuration
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
@@ -152,10 +158,11 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
 }
 
+
 # CORS Configuration
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite React dev server
-    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    os.environ.get('FRONTEND_URL', 'https://healthaid.vercel.app'),
 ]
 
 # Allow HTTP methods needed for REST APIs
@@ -180,3 +187,11 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+
+# Email Configuration
+MAILERS = {
+    'default': {
+        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    },
+}
