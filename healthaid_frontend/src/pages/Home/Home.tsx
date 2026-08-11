@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Heart, Plus } from 'lucide-react';
 import doctorImg from '../../assets/doctor.png';
-import slide2BgPng from '../../assets/background2.png'; // <--- Import your new PNG background here!
+import slide2BgPng from '../../assets/back.png'; // <--- Import your new PNG background here!
 import './Home.css';
 
 export default function Home() {
