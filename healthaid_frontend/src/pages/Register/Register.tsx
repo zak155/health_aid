@@ -8,7 +8,7 @@ import {
   Eye, 
   EyeOff, 
   HeartPulse,
-  Plus,
+  
   ChevronLeft,
 
   Stethoscope,
